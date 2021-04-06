@@ -31,9 +31,16 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/@fortawesome/fontawesome-free/js/all.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,9 +101,16 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/@fortawesome/fontawesome-free/js/all.js"
+            ]
           }
         },
         "lint": {
@@ -127,5 +141,8 @@
       }
     }
   },
-  "defaultProject": "nutrilator"
+  "defaultProject": "nutrilator",
+  "cli": {
+    "analytics": "0030015d-02ba-437f-8d40-c5b3c6aeeea8"
+  }
 }

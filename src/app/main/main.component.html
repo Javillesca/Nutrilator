@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<main>
+    <form #formTemplate="ngForm" class="form-inline mb-4 mt-4" (ngSubmit)="onSearch(formTemplate)">
+        <div class="form-row">
+            <input #name="ngModel" [ngModel]="filterName" name="name" class="form-control mr-sm-4" type="text" placeholder="Nombre">
+            <input #phone="ngModel" [ngModel]="filterContact" name="phone" class="form-control mr-sm-4" type="text" placeholder="Contacto">
+        </div>
+        <button class="btn btn-outline-success my-3 my-sm-0" (click)="onSearch(formTemplate)">Buscar</button>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Contacto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of listClients">
+                <td><button (click)="onShowClient(client)"><i class="fas fa-eye"></i></button></td>
+                <td>{{ client.name }}</td>
+                <td>{{ client.phone }}</td>
+            </tr>
+        </tbody>
+    </table>    
+</main>
+<div class="floating-button" (click)="onAddClient()">
+    <i class="fas fa-plus"></i>
+</div>

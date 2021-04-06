@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<main class="form-user">
+    <form #formTemplate="ngForm" autocomplete="off">
+        <form class="form-inline my-2 my-lg-0">
+            <h4>Mi perfil</h4>
+            <button type="button" class="btn btn-light btnEdit" (click)="onEditUser()">
+                <i class="fas fa-user-edit"></i>
+            </button>
+            <button type="button" class="btn btn-light btnBack" (click)="onBack()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label><b>Nombre: </b> {{ user?.displayName }}</label>
+                </div>
+                <div class="col-md-3">
+                    <label><b>Email: </b> {{ user?.email }}</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</main> 

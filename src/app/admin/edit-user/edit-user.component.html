@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<main>
+    <form #formTemplate="ngForm" autocomplete="off" (ngSubmit)="onSubmit(formTemplate)">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <input #name="ngModel" type="text" name="name" [ngModel]="user.displayName" [class.is-invalid]="name.invalid && name.touched" required minlength="5" class="form-control" placeholder="Nombre">
+                <small *ngIf="name.invalid && name.touched" class="form-text text-danger">Introduzca al menos 5 caracteres</small>
+            </div>
+            <div class="form-group col-md-4">
+                <input #email="ngModel" name="email" type="email" [ngModel]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.is-invalid]="email.invalid && email.touched" required class="form-control" placeholder="Correo electrónico" disabled="false">
+                <small *ngIf="email.invalid && email.touched" class="form-text text-danger">Introduzca un correo valido</small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block btn-update">Guardar cambios</button>
+        <button (click)="onCancel()" class="btn btn-primary btn-lg btn-block btn-cancel">Cancelar</button>
+    </form>
+</main>

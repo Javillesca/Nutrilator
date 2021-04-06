@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="mainForm">
+    <form #formTemplate="ngForm" autocomplete="off" (ngSubmit)="onSubmit(formTemplate)">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <input #name="ngModel" type="text" name="name" [ngModel]="client.name" [class.is-invalid]="name.invalid && name.touched" required minlength="5" class="form-control" placeholder="Nombre">
+                <small *ngIf="name.invalid && name.touched" class="form-text text-danger">Introduzca al menos 5 caracteres</small>
+            </div>
+            <div class="form-group col-md-4">
+                <input #email="ngModel" name="email" type="email" [ngModel]="client.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.is-invalid]="email.invalid && email.touched" required class="form-control" placeholder="Correo electrónico">
+                <small *ngIf="email.invalid && email.touched" class="form-text text-danger">Introduzca un correo valido</small>
+            </div>
+            <div class="form-group col-md-4">
+                <input #phone="ngModel" name="phone" type="phone" [ngModel]="client.phone" pattern="[0-9]{9}" [class.is-invalid]="phone.invalid && phone.touched" required class="form-control" placeholder="Teléfono">
+                <small *ngIf="phone.invalid && phone.touched" class="form-text text-danger">Introduzca un número de telefono valido</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <select #gender="ngModel" name="gender" [ngModel]="client.gender" [class.is-invalid]="gender.invalid && gender.touched" required class="form-control">
+                <option value="" disabled selected>Género</option>
+                <option value="M">Masculino</option>
+                <option value="W">Femenino</option>
+            </select> 
+            <small *ngIf="gender.invalid && gender.touched" class="form-text text-danger">Seleccione una opción</small>
+        </div>
+        <div class="form-group">
+            <input #birthDate="ngModel" name="birthDate" type="date" [ngModel]="client.birthDate" [class.is-invalid]="birthDate.invalid && birthDate.touched" required class="form-control" placeholder="Edad">
+            <small *ngIf="birthDate.invalid && birthDate.touched" class="form-text text-danger">Introduzca la fecha de nacimiento correctamente</small>
+        </div>
+        <div class="form-group">
+            <input #height="ngModel" name="height" type="number" [ngModel]="client.height" pattern="[0-9]{3}" [class.is-invalid]="height.invalid && height.touched" required class="form-control" placeholder="Altura (cm)">
+            <small *ngIf="height.invalid && height.touched" class="form-text text-danger">Introduzca la altura en cm correctamente</small>
+        </div>
+        <div class="form-group">
+            <input #weight="ngModel" name="weight" type="number" [ngModel]="client.weight" [class.is-invalid]="weight.invalid && weight.touched" required class="form-control" placeholder="Peso (kg)">
+            <small *ngIf="weight.invalid && weight.touched" class="form-text text-danger">Introduzca el peso en kg</small>
+        </div>
+        <div class="form-group">
+            <select #metabolism="ngModel" name="metabolism" [ngModel]="client.metabolism" [class.is-invalid]="metabolism.invalid && metabolism.touched" required class="form-control">
+                <option value="" disabled selected>Nivel de actividad</option>
+                <option value="none">Sedentario</option>
+                <option value="slight">Ligera (1-3 días de ejericio semanal)</option>
+                <option value="moderate">Moderada (3-5 días de ejercicio semanal)</option>
+                <option value="strong">Intensa (6-7 días de ejercicio semanal)</option>
+                <option value="extreme">Muy Muy intensa (dos veces al día / entrenamientos muy duros)</option>
+            </select> 
+            <small *ngIf="metabolism.invalid && metabolism.touched" class="form-text text-danger">Seleccione una opción</small>
+        </div>
+    </form>
+    <div>
+        <button (click)="onSubmit(formTemplate)" class="btn btn-primary btn-lg btn-block">Añadir</button>
+        <button (click)="onCancel()" class="btn btn-primary btn-lg btn-block">Cancelar</button>
+
+    </div>
+</div>

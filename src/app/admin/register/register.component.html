@@ -1,0 +1,35 @@
+<main>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)"
+        class="login100-form validate-form flex-sb flex-w">
+
+        <img class="mb-4" src="{{ img }}" width="100%" height="400">
+        <div class="card">
+            <h1 class="card-title text-center">Creación de cuenta</h1>
+            <div class="card-body">
+                <span *ngIf="name.invalid && name.touched" class="text-danger">Nombre mínimo 6 caracteres</span>
+                <input #name="ngModel" name="name" [(ngModel)]="user.name"
+                    [class.is-invalid]="name.invalid && name.touched" minlength="5"
+                    class="form-control mb-4" placeholder="Nombre" required>
+
+                <span *ngIf="email.invalid && email.touched" class="text-danger">Introduzca un email valido</span>
+                <input #email="ngModel" type="email" name="email" [(ngModel)]="user.email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.is-invalid]="email.invalid && email.touched"
+                    class="form-control mb-4" placeholder="Email" required email>
+
+                <span *ngIf="password.invalid && password.touched" class="text-danger">Contraseña mínima 6 caracteres</span>
+                <input #password="ngModel" type="password" name="password" [(ngModel)]="user.password"
+                    [class.is-invalid]="password.invalid && password.touched" minlength="6"
+                    class="form-control mb-4" placeholder="Contraseña" required>
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Crear cuenta</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="mt-4">
+        <p>
+            ¿Ya tienes cuenta?
+            <a [routerLink]="['/login']" class="txt1">Inicia sesión</a>
+        </p>
+    </div>
+</main>

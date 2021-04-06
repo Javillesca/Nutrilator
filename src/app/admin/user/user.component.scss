@@ -1,0 +1,26 @@
+
+
+button {
+    margin: 5px;
+}
+
+.btnBack {
+    right: 5px;
+    position: fixed;
+    border-radius: 90%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.btnEdit  {
+    right: 40px;
+    position: fixed;
+    border-radius: 90%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+textarea {
+    width: 80%;
+    height: 120px;
+}

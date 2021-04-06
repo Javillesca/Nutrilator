@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<main> 
+    <form class="form-inline my-2 my-lg-0">
+        <button type="button" class="btn btn-light btnEdit" (click)="onEditClient()">
+            <i class="fas fa-user-edit"></i>
+        </button>
+        <button type="button" class="btn btn-light btnDelete" (click)="onDelete()">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+        <button type="button" class="btn btn-light btnBack" (click)="onBack()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4 class="mb-4">Datos del cliente</h4>
+                <form #formTemplate="ngForm">
+                    <div class="form-group">
+                        <label><b>Nombre:</b> {{ client.name }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Email:</b> {{ client.email }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Telefono:</b> {{ client.phone }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Género:</b> {{ client.gender | gender }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Fecha de nacimiento:</b> {{ client.birthDate | dateFormate }} &nbsp; </label>
+                        <label><b> Edad:</b> {{ client.age }}</label> 
+                    </div>
+                    <div class="form-group">
+                        <label><b>Altura:</b> {{ client.height }} cm</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Peso:</b> {{ client.weight }} kg</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Actividad física:</b> {{ client.metabolism | metabolism }}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h4 class="mb-4"><i>Análisis</i></h4>
+                <form #formTemplate="ngForm">
+                    <div class="form-group">
+                        <label><b>IMC:</b> {{ analysis.IMC }} ({{ analysis.IMC | imc}})</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Peso ideal:</b> {{ analysis.ideal }} kg</label>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Sobrepeso:</b> {{ analysis.percentOverweight }}% ({{ analysis.percentOverweight | pOverweight : client.gender }})</label>
+                    </div>
+                    <div class="form-group">
+                        <label> <b>TMB:</b> {{ this.analysis.TMB }} kcal</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
